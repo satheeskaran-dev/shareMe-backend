@@ -1,0 +1,21 @@
+20231415	22:14:42	d8001fc7-b3eb-45e7-8ba2-c83a6833d72f	ValidationError: User validation failed: firstName: Path `firstName` is required.	POST	/auth/sign-up	undefined
+20231515	22:15:56	c501ecb3-2e1a-4177-b049-a6c549e8620d	ValidationError: User validation failed: firstName: Path `firstName` is required.	POST	/auth/sign-up	undefined
+20234416	22:44:01	76e69c48-2417-49cd-b23e-d18c9424e722	Error: not allowed by cors	OPTIONS	/auth/sign-up	http://localhost:3000
+20234516	22:45:37	70779b05-a3d8-4969-8853-df8bbe7e28c3	Error: not allowed by cors	OPTIONS	/auth/sign-up	http://localhost:3000
+20235116	22:51:47	045986f6-89bf-40a5-a8df-0f0685904315	ValidationError: User validation failed: profileImg: Cast to string failed for value "{ path: '63a15854ef9194354808c017.png' }" (type Object) at path "profileImg"	POST	/auth/sign-up	http://localhost:3000
+20231617	21:16:26	ec1778e1-5391-4c52-9bad-c5c8ab356cd8	ValidationError: User validation failed: profileImg: Cast to string failed for value "{ path: '63a56f696f0b5a48120f2026.png' }" (type Object) at path "profileImg"	POST	/auth/sign-up	http://localhost:3000
+20230717	22:07:45	fef1c1df-0927-4d6e-a4b2-a14f6d8cfbb2	TypeError: Cannot read properties of undefined (reading 'fieldname')	POST	/auth/sign-up	http://localhost:3000
+20231117	22:11:20	609c2d86-0d80-47c8-b5e9-d65983080367	TypeError: Cannot read properties of undefined (reading 'fieldname')	POST	/auth/sign-up	http://localhost:3000
+20232717	22:27:50	346931a6-3abe-4876-a0a9-791f3fe00f50	TypeError: Cannot read properties of undefined (reading 'fieldname')	POST	/auth/sign-up	http://localhost:3000
+20233417	22:34:02	ca734e5f-bc5b-4f8f-b00d-ec80bd73238e	TypeError: Cannot read properties of undefined (reading 'fieldname')	POST	/auth/sign-up	http://localhost:3000
+20230917	23:09:58	5c3d259b-97cd-4cd1-bab3-529c5c931b25	TypeError: Cannot read properties of undefined (reading 'fieldname')	POST	/auth/sign-up	http://localhost:3000
+20233119	23:31:22	c18b9cb5-b4f5-4b6e-ae9d-80072a78b671	Error: not allowed by cors	POST	/api/auth/sign-up	http://localhost:5000/
+20233819	23:38:38	8ea0a0bf-7411-4bd9-ab04-35f2d8b52d11	Error: not allowed by cors	POST	/api/auth/sign-up	http://localhost:5000/
+20235020	21:50:47	460edbb3-7a09-4562-ab4d-2251e51a07eb	Error: not allowed by cors	POST	/api/auth/login	http://localhost:5000/
+20235320	21:53:59	ea028c6e-bb08-4604-92f6-f645ee135f5b	Error: not allowed by cors	POST	/api/auth/login	http://localhost:5000/
+20235720	21:57:05	91068ecc-fa1c-4ffd-b87a-21ea324e6a01	Error: not allowed by cors	POST	/api/auth/login	http://localhost:5000/
+20231322	15:13:28	10ab861d-ad24-4812-ab5a-11412f0e977e	TypeError: Cannot read properties of undefined (reading 'fieldname')	POST	/api/auth/sign-up	http://localhost:5000/
+20231422	22:14:03	5e88b965-577b-41b2-9265-9a957b7bb9a2	ReferenceError: code is not defined	POST	/api/auth/login	http://localhost:5000/
+20231522	22:15:27	6e8758f0-3394-4e0e-9e42-8be4e70fc369	ReferenceError: code is not defined	POST	/api/auth/login	http://localhost:5000/
+20231622	22:16:13	c62ac4d8-0154-4210-87af-42bf5a6d70c2	ReferenceError: code is not defined	POST	/api/auth/login	http://localhost:5000/
+20230622	23:06:47	d60703ad-a937-4350-9bf7-be8409fc0eb5	Error: Cannot set headers after they are sent to the client	POST	/api/auth/logout	http://localhost:5000/
