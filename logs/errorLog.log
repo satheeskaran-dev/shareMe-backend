@@ -19,3 +19,11 @@
 20231522	22:15:27	6e8758f0-3394-4e0e-9e42-8be4e70fc369	ReferenceError: code is not defined	POST	/api/auth/login	http://localhost:5000/
 20231622	22:16:13	c62ac4d8-0154-4210-87af-42bf5a6d70c2	ReferenceError: code is not defined	POST	/api/auth/login	http://localhost:5000/
 20230622	23:06:47	d60703ad-a937-4350-9bf7-be8409fc0eb5	Error: Cannot set headers after they are sent to the client	POST	/api/auth/logout	http://localhost:5000/
+20235024	21:50:41	9049e69c-e59e-4ad8-b97d-d5beddda3f17	Error: Cannot set headers after they are sent to the client	PATCH	/api/user/63ceb73f52a25b94400913c4	undefined
+20235124	21:51:16	16562feb-a7c0-49fe-ab51-d6fb52a66e51	Error: Cannot set headers after they are sent to the client	PATCH	/api/user/63ceb73f52a25b94400913c4	undefined
+20232124	23:21:02	4f242c83-32f2-4df4-9670-cbf7ffe448fa	CastError: Cast to ObjectId failed for value "63cd07a24902f701894d906" (type string) at path "_id" for model "User"	PATCH	/api/user/change-password/63cd07a24902f701894d906	undefined
+20232424	23:24:32	c4bdfa46-bac0-46d2-9417-4811a0423f3a	CastError: Cast to ObjectId failed for value "63cd07a24902f701894d906" (type string) at path "_id" for model "User"	PATCH	/api/user/change-password/63cd07a24902f701894d906	undefined
+20232624	23:26:17	e861d88b-dda1-4951-8d4d-4e905e9d213a	CastError: Cast to ObjectId failed for value "63cd07a24902f701894d906" (type string) at path "_id" for model "User"	PATCH	/api/user/change-password/63cd07a24902f701894d906	undefined
+20232624	23:26:19	94c163cd-9804-49de-8148-c6efce7cfe5d	CastError: Cast to ObjectId failed for value "63cd07a24902f701894d906" (type string) at path "_id" for model "User"	PATCH	/api/user/change-password/63cd07a24902f701894d906	undefined
+20232624	23:26:20	de1085af-f4b2-48a8-a1be-9f0ed114eaae	CastError: Cast to ObjectId failed for value "63cd07a24902f701894d906" (type string) at path "_id" for model "User"	PATCH	/api/user/change-password/63cd07a24902f701894d906	undefined
+20232724	23:27:53	f1b88a3d-5dae-414e-ac57-33133daa8b84	CastError: Cast to ObjectId failed for value "63cd07a24902f701894d90" (type string) at path "_id" for model "User"	PATCH	/api/user/change-password/63cd07a24902f701894d90	undefined

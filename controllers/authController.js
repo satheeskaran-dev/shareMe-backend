@@ -115,6 +115,9 @@ const logIn = asyncHandler(async (req, res) => {
     maxAge: 7 * 24 * 60 * 60 * 1000, // cookie expire after 7 days
   });
 
+  // remove password from response object
+  delete foundUser["password"];
+
   res.status(200).json({
     token: accessToken,
     expireAt: accessTokenExpireAt,

@@ -1,27 +1,32 @@
-require("dotenv").config();
 const express = require("express");
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
+const mongoose = require("mongoose");
+require("dotenv").config();
 const app = express();
 const path = require("path");
 const { logger, logEvents } = require("./middleware/logger");
 const errorHandler = require("./middleware/errorHandler");
-const cookieParser = require("cookie-parser");
-const cors = require("cors");
 const corsOptions = require("./config/cors/corsOptions");
 const dbConnection = require("./config/dbConnection");
-const mongoose = require("mongoose");
 const authRoutes = require("./routes/authRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 const PORT = process.env.PORT || 5500;
 app.use(express.static(path.join(__dirname, "public")));
 
 dbConnection();
-app.use(logger);
+app.use(bodyParser.json({ limit: "30mb" }));
+app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors(corsOptions));
+app.use(logger);
 
-/* ROUTES WITH FILES */
+/* ROUTES  */
 app.use("/api/auth", authRoutes);
+app.use("/api/user", userRoutes);
 
 app.use(errorHandler);
 mongoose.connection.once("open", () => {

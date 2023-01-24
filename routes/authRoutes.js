@@ -1,6 +1,6 @@
 const express = require("express");
-const { register, logIn, logOut } = require("../controllers/authController");
 const router = express.Router();
+const { register, logIn, logOut } = require("../controllers/authController");
 const { upload } = require("../middleware/uploader");
 
 router.post("/sign-up", upload.single("profileImg"), register);
