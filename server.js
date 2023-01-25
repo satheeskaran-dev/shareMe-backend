@@ -22,6 +22,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors(corsOptions));
+
 app.use(logger);
 
 /* ROUTES  */
