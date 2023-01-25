@@ -8,7 +8,7 @@ const app = express();
 const path = require("path");
 const { logger, logEvents } = require("./middleware/logger");
 const errorHandler = require("./middleware/errorHandler");
-const corsOptions = require("./config/cors/corsOptions");
+// const corsOptions = require("./config/cors/corsOptions");
 const dbConnection = require("./config/dbConnection");
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
@@ -21,7 +21,8 @@ app.use(bodyParser.json({ limit: "30mb" }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(logger);
 
