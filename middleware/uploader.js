@@ -2,7 +2,7 @@ const multer = require("multer");
 const { v4: uuid } = require("uuid");
 const fs = require("fs");
 const fsPromises = require("fs").promises;
-const baseName = require("../config/baseName");
+const baseName = require("../baseName");
 const { join } = require("path");
 
 /* FILE STORAGE */
