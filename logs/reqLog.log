@@ -219,3 +219,5 @@
 20232624	23:26:25	3e07c2f6-9697-48f9-a9cb-a875f386db00	PATCH	/api/user/change-password/63cd07a24902f701894d9061	undefined
 20232724	23:27:45	765ca2be-2ab9-4f11-bd5b-d0dd02161304	PATCH	/api/user/change-password/63cd07a24902f701894d9061	undefined
 20232724	23:27:53	a0e15f56-b9d7-4ee4-85ee-81d067eb8ccf	PATCH	/api/user/change-password/63cd07a24902f701894d90	undefined
+20230926	22:09:27	a7e82b16-5653-4e6c-97c2-a2b7d1186f3f	POST	/api/auth/sign-up	http://localhost:5000/
+20230926	22:09:56	868bd9d3-4016-4608-b294-207e6dc057fc	POST	/api/auth/login	http://localhost:5000/

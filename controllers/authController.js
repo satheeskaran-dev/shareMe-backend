@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const asyncHandler = require("express-async-handler");
 const jwt = require("jsonwebtoken");
 
+
 /* REGISTER USER */
 
 const register = asyncHandler(async (req, res) => {
