@@ -3,7 +3,6 @@ const bcrypt = require("bcrypt");
 const asyncHandler = require("express-async-handler");
 const jwt = require("jsonwebtoken");
 
-
 /* REGISTER USER */
 
 const register = asyncHandler(async (req, res) => {
@@ -89,12 +88,12 @@ const logIn = asyncHandler(async (req, res) => {
 
   const foundUser = await User.findOne({ email }).lean().exec();
   if (!foundUser) {
-    return res.status(400).json({ message: "User does not exist !" });
+    return res.status(400).json({ message: "Invalid credentials !" });
   }
   const isMatch = await bcrypt.compare(password, foundUser.password);
 
   if (!isMatch) {
-    return res.status(400).json({ message: "Invalid credentials ! " });
+    return res.status(400).json({ message: "Incorrect password! " });
   }
 
   const accessToken = jwt.sign(
