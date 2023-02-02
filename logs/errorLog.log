@@ -27,3 +27,5 @@
 20232624	23:26:19	94c163cd-9804-49de-8148-c6efce7cfe5d	CastError: Cast to ObjectId failed for value "63cd07a24902f701894d906" (type string) at path "_id" for model "User"	PATCH	/api/user/change-password/63cd07a24902f701894d906	undefined
 20232624	23:26:20	de1085af-f4b2-48a8-a1be-9f0ed114eaae	CastError: Cast to ObjectId failed for value "63cd07a24902f701894d906" (type string) at path "_id" for model "User"	PATCH	/api/user/change-password/63cd07a24902f701894d906	undefined
 20232724	23:27:53	f1b88a3d-5dae-414e-ac57-33133daa8b84	CastError: Cast to ObjectId failed for value "63cd07a24902f701894d90" (type string) at path "_id" for model "User"	PATCH	/api/user/change-password/63cd07a24902f701894d90	undefined
+20231301	23:13:46	1c239ba1-ea66-48bd-9490-85211d0b500c	Error: Cannot set headers after they are sent to the client	POST	/api/auth/logout	http://localhost:5000/
+20230603	01:06:43	97b2f3b2-4036-4db8-9efd-e4df1278ff40	CastError: Cast to ObjectId failed for value "remove-profile" (type string) at path "_id" for model "User"	GET	/api/user/remove-profile?63dc0a1251c234b79bcc371f=	undefined
