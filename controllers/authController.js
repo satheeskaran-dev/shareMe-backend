@@ -71,11 +71,14 @@ const register = asyncHandler(async (req, res) => {
   const savedUser = await newUser.save();
 
   if (savedUser) {
-    return res
-      .status(201)
-      .json({ message: ` New user ${savedUser.email} created successfully` });
+    return res.status(201).json({
+      status: 201,
+      message: ` New user ${savedUser.email} created successfully`,
+    });
   } else {
-    return res.status(400).json({ message: "Invalid credentials !" });
+    return res
+      .status(500)
+      .json({ status: 500, message: "Internal server error !" });
   }
 });
 

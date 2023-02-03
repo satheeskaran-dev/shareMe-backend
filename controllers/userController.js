@@ -4,37 +4,31 @@ const bcrypt = require("bcrypt");
 const fs = require("fs");
 
 const getUser = asyncHandler(async (req, res) => {
-  const { id } = req.params;
-
+  const { id } = req.query;
+  console.log(id);
   if (!id) {
     return res.status(404).json({ message: "user id not provided !" });
   }
   const user = await User.findById(id).select("-password");
-
   if (!user) {
     return res.status(404).json({ message: "No such user exists !" });
   }
-
   res.status(200).json(user);
 });
 
 const updateUser = asyncHandler(async (req, res) => {
   const { id } = req.params;
   const data = req.body;
-
   if (!id) {
     return res.status(400).json({ message: "Id is not provided !" });
   }
-
   if (data.password) {
     delete data.password;
   }
-
   const user = await User.findByIdAndUpdate(id, data, { new: true });
   if (!user) {
     return res.status(400).json({ message: "User does not exists !" });
   }
-
   res.status(200).json(user);
 });
 
@@ -76,8 +70,6 @@ const changePassword = asyncHandler(async (req, res) => {
 const removeProfilePicture = asyncHandler(async (req, res) => {
   const { id } = req.params;
 
-  console.log("id is here", id);
-
   if (!id) {
     return res.status(404).json({ message: "user id not provided !" });
   }
@@ -97,19 +89,16 @@ const removeProfilePicture = asyncHandler(async (req, res) => {
 
       user.profileImg = "";
 
-      const updatedUser = await user.save();
+      await user.save();
 
       if (updateUser) {
         res
           .status(200)
-          .json({ message: "Profile picture deleted .", user: updatedUser });
-      } else {
-        return res.status(500).json({
-          message: "server error",
-        });
+          .json({ status: 200, message: "Profile picture deleted ." });
       }
     });
   }
+  res.status(500).json({ status: 500, message: "Internal server error !" });
 });
 
 module.exports = { getUser, updateUser, changePassword, removeProfilePicture };
