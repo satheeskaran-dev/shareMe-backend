@@ -89,16 +89,19 @@ const removeProfilePicture = asyncHandler(async (req, res) => {
 
       user.profileImg = "";
 
-      await user.save();
+      const updatedUser = await user.save();
 
       if (updateUser) {
         res
           .status(200)
           .json({ status: 200, message: "Profile picture deleted ." });
+      } else {
+        return res.status(500).json({
+          message: "server error",
+        });
       }
     });
   }
-  res.status(500).json({ status: 500, message: "Internal server error !" });
 });
 
 module.exports = { getUser, updateUser, changePassword, removeProfilePicture };
