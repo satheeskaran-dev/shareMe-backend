@@ -2,6 +2,9 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const asyncHandler = require("express-async-handler");
 const jwt = require("jsonwebtoken");
+const baseName = require("../baseName");
+const { v4: uuid } = require("uuid");
+const { join } = require("path");
 
 /* REGISTER USER */
 
@@ -23,7 +26,7 @@ const register = asyncHandler(async (req, res) => {
     password,
   } = req.body;
 
-  console.log(req.file);
+  const { profileImg } = req.files || {};
 
   //confirm data
 
@@ -45,10 +48,26 @@ const register = asyncHandler(async (req, res) => {
   const hashedPassword = await bcrypt.hash(password, salt);
 
   // const url = req.protocol + "://" + req.get("host");
-  let filePath = "";
-  if (req.file) {
-    filePath = `/assets/${req.file.fieldname}/` + req.file.filename;
+
+  let uploadPath = "";
+  let filesUploadedSuccess = true;
+  if (profileImg) {
+    uploadPath = `public/assets/profileImg/${uuid()}.${
+      profileImg.name.split(".")[1]
+    }`;
+
+    const fileUpload = () =>
+      new Promise((resolve, reject) => {
+        profileImg.mv(join(baseName, uploadPath), (err) => {
+          if (err) reject(false);
+          resolve(true);
+        });
+      });
+    filesUploadedSuccess = await fileUpload();
   }
+
+  if (!filesUploadedSuccess)
+    return res.status(400).json({ message: "file upload failed" });
 
   const newUser = new User({
     firstName,
@@ -65,7 +84,7 @@ const register = asyncHandler(async (req, res) => {
     wordPlace,
     email,
     password: hashedPassword,
-    profileImg: filePath,
+    profileImg: uploadPath.slice(6),
   });
 
   const savedUser = await newUser.save();
@@ -89,7 +108,7 @@ const logIn = asyncHandler(async (req, res) => {
     return res.status(401).json({ message: "All fields are required" });
   }
 
-  const foundUser = await User.findOne({ email }).lean().exec();
+  const foundUser = await User.findOne({ email }).populate("posts");
   if (!foundUser) {
     return res.status(400).json({ message: "Invalid credentials !" });
   }
@@ -121,10 +140,14 @@ const logIn = asyncHandler(async (req, res) => {
   // remove password from response object
   delete foundUser["password"];
 
+  const populatedUser = await User.findById(foundUser._id)
+    .select("-password")
+    .populate("posts");
+
   res.status(200).json({
     token: accessToken,
     expireAt: accessTokenExpireAt,
-    user: { ...foundUser },
+    user: populatedUser,
   });
 });
 

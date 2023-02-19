@@ -29,3 +29,11 @@
 20232724	23:27:53	f1b88a3d-5dae-414e-ac57-33133daa8b84	CastError: Cast to ObjectId failed for value "63cd07a24902f701894d90" (type string) at path "_id" for model "User"	PATCH	/api/user/change-password/63cd07a24902f701894d90	undefined
 20231301	23:13:46	1c239ba1-ea66-48bd-9490-85211d0b500c	Error: Cannot set headers after they are sent to the client	POST	/api/auth/logout	http://localhost:5000/
 20230603	01:06:43	97b2f3b2-4036-4db8-9efd-e4df1278ff40	CastError: Cast to ObjectId failed for value "remove-profile" (type string) at path "_id" for model "User"	GET	/api/user/remove-profile?63dc0a1251c234b79bcc371f=	undefined
+20233007	20:30:31	fda00734-b122-461b-9263-40e9005087e3	TypeError: Cannot destructure property 'profileImg' of 'req.file' as it is undefined.	POST	/api/auth/sign-up	http://localhost:5000/
+20233207	20:32:36	758ae2ce-028f-4e88-85ea-ec2e53f33177	ReferenceError: Cannot access 'filePath' before initialization	POST	/api/auth/sign-up	http://localhost:5000/
+20233407	20:34:01	8f57e70c-f161-4c8b-8e8f-9f74de55d669	ReferenceError: join is not defined	POST	/api/auth/sign-up	http://localhost:5000/
+20234107	20:41:03	44f7b23a-2863-46b0-8758-fc9ee0bd3155	ReferenceError: fileUpload is not defined	POST	/api/auth/sign-up	http://localhost:5000/
+20232107	21:21:00	650b8778-4752-43be-b814-a38bb71d2714	TypeError: Cannot destructure property 'profileImg' of 'req.files' as it is null.	POST	/api/auth/sign-up	http://localhost:5000/
+20233319	21:33:28	490d3432-cd93-45d0-8eaa-06b27a48dde7	StrictPopulateError: Cannot populate path `Post` because it is not in your schema. Set the `strictPopulate` option to false to override.	GET	/api/user/63ddea92b66137bf7de9023b	undefined
+20233319	23:33:00	2e7bf21e-a41d-4530-9d58-ec4b78a38e90	ReferenceError: uuid is not defined	POST	/api/post/create-post?userId=63de67720e272eed6981fe3e	http://localhost:5000/
+20233519	23:35:02	63711289-c1dd-46bc-9100-1c7a369baa30	ReferenceError: join is not defined	POST	/api/post/create-post?userId=63de67720e272eed6981fe3e	http://localhost:5000/

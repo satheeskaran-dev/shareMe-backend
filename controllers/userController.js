@@ -3,13 +3,21 @@ const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcrypt");
 const fs = require("fs");
 
+const getAllUsers = asyncHandler(async (req, res) => {
+  const user = await User.find().select("-password");
+  if (!user) {
+    return res.status(404).json({ message: "No users exists !" });
+  }
+  res.status(200).json(user);
+});
+
 const getUser = asyncHandler(async (req, res) => {
-  const { id } = req.query;
+  const { id } = req.params;
   console.log(id);
   if (!id) {
     return res.status(404).json({ message: "user id not provided !" });
   }
-  const user = await User.findById(id).select("-password");
+  const user = await User.findById(id).select("-password").populate("posts");
   if (!user) {
     return res.status(404).json({ message: "No such user exists !" });
   }
@@ -17,7 +25,7 @@ const getUser = asyncHandler(async (req, res) => {
 });
 
 const updateUser = asyncHandler(async (req, res) => {
-  const { id } = req.params;
+  const { id } = req.query;
   const data = req.body;
   if (!id) {
     return res.status(400).json({ message: "Id is not provided !" });
@@ -79,6 +87,7 @@ const removeProfilePicture = asyncHandler(async (req, res) => {
   if (!user) {
     return res.status(400).json({ message: "User does not exists !" });
   }
+
   if (user.profileImg) {
     fs.unlink(`public/${user.profileImg}`, async (err) => {
       if (err) {
@@ -92,7 +101,7 @@ const removeProfilePicture = asyncHandler(async (req, res) => {
       const updatedUser = await user.save();
 
       if (updateUser) {
-        res
+        return res
           .status(200)
           .json({ status: 200, message: "Profile picture deleted ." });
       } else {
@@ -101,7 +110,17 @@ const removeProfilePicture = asyncHandler(async (req, res) => {
         });
       }
     });
+  } else {
+    res
+      .status(400)
+      .json({ status: 400, message: "Profile picture does not exists !" });
   }
 });
 
-module.exports = { getUser, updateUser, changePassword, removeProfilePicture };
+module.exports = {
+  getAllUsers,
+  getUser,
+  updateUser,
+  changePassword,
+  removeProfilePicture,
+};

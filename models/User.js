@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const validator = require("validator");
 
 const userSchema = new mongoose.Schema(
   {
@@ -27,6 +28,7 @@ const userSchema = new mongoose.Schema(
     email: {
       type: String,
       required: true,
+      validate: (value) => validator.isEmail(value),
     },
     password: {
       type: String,
@@ -34,12 +36,15 @@ const userSchema = new mongoose.Schema(
     },
     profileImg: String,
     coverImg: String,
-    followers: [],
-    following: [],
-    role: {
-      type: String,
-      default: "user",
-    },
+    followers: { type: Array, default: [] },
+    following: { type: Array, default: [] },
+    isAdmin: { type: Boolean, default: false },
+    posts: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Post",
+      },
+    ],
   },
   { timestamps: true }
 );

@@ -12,8 +12,12 @@ const errorHandler = require("./middleware/errorHandler");
 const dbConnection = require("./config/dbConnection");
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
+const postRoutes = require("./routes/postRoutes");
+const fileUpload = require("express-fileupload");
+const baseName = require("./baseName");
 
 const PORT = process.env.PORT || 5500;
+
 app.use(express.static(path.join(__dirname, "public")));
 
 dbConnection();
@@ -26,9 +30,12 @@ app.use(cors());
 
 app.use(logger);
 
+app.use(fileUpload());
+
 /* ROUTES  */
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/post", postRoutes);
 
 app.use(errorHandler);
 mongoose.connection.once("open", () => {

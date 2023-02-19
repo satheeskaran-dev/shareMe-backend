@@ -4,11 +4,12 @@ const {
   updateUser,
   changePassword,
   removeProfilePicture,
+  getAllUsers,
 } = require("../controllers/userController");
 
-// router.get("/:id", getUser);
-router.get("/", getUser);
-router.patch("/:id", updateUser);
+router.get("/", getAllUsers);
+router.get("/:id", getUser);
+router.patch("/", updateUser);
 router.delete("/remove-profile/:id", removeProfilePicture);
 router.patch("/change-password/:id", changePassword);
 
