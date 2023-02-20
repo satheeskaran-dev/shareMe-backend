@@ -668,3 +668,10 @@
 20233320	23:33:57	1a85f6fe-6af2-4ad7-8245-56baadb79d50	GET	/api/user/63f26b6480da9900f44a38d9	undefined
 20233820	23:38:41	96488bf2-074c-4123-b957-8f455a5450b2	GET	/api/user/63f26b6480da9900f44a38d9	undefined
 20234120	23:41:15	4118f467-7085-415a-ba12-4a7ed03d5521	GET	/api/user/63f26b6480da9900f44a38d9	undefined
+20235820	23:58:00	33af8389-9280-417d-836e-bec8981c93cc	GET	/assets/profileImg/2d9cb938-7968-4a82-8a9b-f6d9a8fb3ed4.jpeg	undefined
+20235820	23:58:19	db8fa326-37d1-48d8-901c-cd76df4d0cdc	POST	/api/auth/logout	http://localhost:5000/
+20235920	23:59:04	cd81fd7a-8158-4ccf-af80-5722d5f4d65b	POST	/api/auth/sign-up	http://localhost:5000/
+20230121	00:01:05	c9db4ab4-527e-4329-84ca-e294df09ca3f	POST	/api/auth/sign-up	http://localhost:5000/
+20230321	00:03:43	c6c95e45-d20b-4962-aa7b-5e1ce2c7aabc	POST	/api/auth/sign-up	http://localhost:5000/
+20230321	00:03:51	fccff86b-42d4-4b7c-a07c-be532dcc5ed2	POST	/api/auth/login	http://localhost:5000/
+20230421	00:04:00	32a1ce0c-6c9d-4fb8-b983-7614ddab1a1f	POST	/api/auth/logout	http://localhost:5000/
