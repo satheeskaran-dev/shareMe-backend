@@ -4,22 +4,9 @@ const bcrypt = require("bcrypt");
 const fs = require("fs");
 
 const getAllUsers = asyncHandler(async (req, res) => {
-  const user = await User.find().select("-password");
+  const user = await User.find().select("-password").sort({ createdAt: -1 });
   if (!user) {
     return res.status(404).json({ message: "No users exists !" });
-  }
-  res.status(200).json(user);
-});
-
-const getUser = asyncHandler(async (req, res) => {
-  const { id } = req.params;
-  console.log(id);
-  if (!id) {
-    return res.status(404).json({ message: "user id not provided !" });
-  }
-  const user = await User.findById(id).select("-password").populate("posts");
-  if (!user) {
-    return res.status(404).json({ message: "No such user exists !" });
   }
   res.status(200).json(user);
 });
@@ -100,7 +87,7 @@ const removeProfilePicture = asyncHandler(async (req, res) => {
 
       const updatedUser = await user.save();
 
-      if (updateUser) {
+      if (updatedUser) {
         return res
           .status(200)
           .json({ status: 200, message: "Profile picture deleted ." });
@@ -117,9 +104,25 @@ const removeProfilePicture = asyncHandler(async (req, res) => {
   }
 });
 
+const getUserPost = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  console.log(id);
+  if (!id) {
+    return res.status(404).json({ message: "user id not provided !" });
+  }
+  const userPost = await User.findById(id)
+    .populate({ path: "posts", options: { sort: "-createdAt" } })
+    .select("posts");
+
+  if (!userPost) {
+    return res.status(404).json({ message: "No posts exists !" });
+  }
+  res.status(200).json(userPost);
+});
+
 module.exports = {
   getAllUsers,
-  getUser,
+  getUserPost,
   updateUser,
   changePassword,
   removeProfilePicture,

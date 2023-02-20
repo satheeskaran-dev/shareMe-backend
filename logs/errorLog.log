@@ -37,3 +37,4 @@
 20233319	21:33:28	490d3432-cd93-45d0-8eaa-06b27a48dde7	StrictPopulateError: Cannot populate path `Post` because it is not in your schema. Set the `strictPopulate` option to false to override.	GET	/api/user/63ddea92b66137bf7de9023b	undefined
 20233319	23:33:00	2e7bf21e-a41d-4530-9d58-ec4b78a38e90	ReferenceError: uuid is not defined	POST	/api/post/create-post?userId=63de67720e272eed6981fe3e	http://localhost:5000/
 20233519	23:35:02	63711289-c1dd-46bc-9100-1c7a369baa30	ReferenceError: join is not defined	POST	/api/post/create-post?userId=63de67720e272eed6981fe3e	http://localhost:5000/
+20231420	23:14:04	ecb5d67c-a852-4b28-8e6a-e188d9b9e518	Error: Invalid sort() argument, must be array of arrays	GET	/api/user/63de67720e272eed6981fe3e	undefined

@@ -108,7 +108,7 @@ const logIn = asyncHandler(async (req, res) => {
     return res.status(401).json({ message: "All fields are required" });
   }
 
-  const foundUser = await User.findOne({ email }).populate("posts");
+  const foundUser = await User.findOne({ email });
   if (!foundUser) {
     return res.status(400).json({ message: "Invalid credentials !" });
   }
@@ -140,14 +140,10 @@ const logIn = asyncHandler(async (req, res) => {
   // remove password from response object
   delete foundUser["password"];
 
-  const populatedUser = await User.findById(foundUser._id)
-    .select("-password")
-    .populate("posts");
-
   res.status(200).json({
     token: accessToken,
     expireAt: accessTokenExpireAt,
-    user: populatedUser,
+    user: foundUser,
   });
 });
 
