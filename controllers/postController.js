@@ -1,9 +1,7 @@
 const Post = require("../models/Post");
 const asyncHandler = require("express-async-handler");
-const { v4: uuid } = require("uuid");
-const { join } = require("path");
-const baseName = require("../baseName");
 const User = require("../models/User");
+const expressFileUploader = require("../middleware/expressUploader");
 
 const createPost = asyncHandler(async (req, res) => {
   const { description } = req.body || {};
@@ -16,31 +14,15 @@ const createPost = asyncHandler(async (req, res) => {
   if (!description && !image) {
     return res.status(400).json({ message: "All field are required !" });
   }
+  const uploadPath = await expressFileUploader(image, "post");
 
-  let uploadPath = "";
-  let filesUploadedSuccess = true;
-  if (image) {
-    uploadPath = `public/assets/postImages/${uuid()}.${
-      image.name.split(".")[1]
-    }`;
-
-    const fileUpload = () =>
-      new Promise((resolve, reject) => {
-        image.mv(join(baseName, uploadPath), (err) => {
-          if (err) reject(false);
-          resolve(true);
-        });
-      });
-    filesUploadedSuccess = await fileUpload();
-  }
-
-  if (!filesUploadedSuccess)
+  if (image && uploadPath === "")
     return res.status(400).json({ message: "file upload failed" });
 
   const newPost = new Post({
     user: userId,
     description,
-    image: uploadPath.slice(6),
+    image: uploadPath,
   });
 
   const savedPost = await newPost.save();

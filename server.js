@@ -14,7 +14,6 @@ const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
 const postRoutes = require("./routes/postRoutes");
 const fileUpload = require("express-fileupload");
-const baseName = require("./baseName");
 
 const PORT = process.env.PORT || 5500;
 

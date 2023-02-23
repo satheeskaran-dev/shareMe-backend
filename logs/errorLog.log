@@ -38,3 +38,18 @@
 20233319	23:33:00	2e7bf21e-a41d-4530-9d58-ec4b78a38e90	ReferenceError: uuid is not defined	POST	/api/post/create-post?userId=63de67720e272eed6981fe3e	http://localhost:5000/
 20233519	23:35:02	63711289-c1dd-46bc-9100-1c7a369baa30	ReferenceError: join is not defined	POST	/api/post/create-post?userId=63de67720e272eed6981fe3e	http://localhost:5000/
 20231420	23:14:04	ecb5d67c-a852-4b28-8e6a-e188d9b9e518	Error: Invalid sort() argument, must be array of arrays	GET	/api/user/63de67720e272eed6981fe3e	undefined
+20235423	20:54:39	e9f9075e-3f67-4f1b-b4fd-08a596a02b9d	ReferenceError: uuid is not defined	POST	/api/auth/sign-up	http://localhost:5000/
+20235523	20:55:49	d1dd4f56-585e-48b4-84ba-c59d52533b24	ReferenceError: join is not defined	POST	/api/auth/sign-up	http://localhost:5000/
+20232123	22:21:25	7f737f95-a0c7-4cbd-ad32-6f231c4d38a6	Error: Cannot set headers after they are sent to the client	POST	/api/auth/logout	http://localhost:5000/
+20232123	22:21:28	52b60040-e40b-4269-9720-a1ec5affe9ea	Error: Cannot set headers after they are sent to the client	POST	/api/auth/logout	http://localhost:5000/
+20232123	22:21:29	64de50a8-8c07-4f2e-9620-a85e09d9bca1	Error: Cannot set headers after they are sent to the client	POST	/api/auth/logout	http://localhost:5000/
+20232123	22:21:31	3438ca6b-15f6-476c-89b8-53cdd0888f4e	Error: Cannot set headers after they are sent to the client	POST	/api/auth/logout	http://localhost:5000/
+20232123	22:21:33	7cb7efd9-da28-4539-ab32-030ee4bb2d49	Error: Cannot set headers after they are sent to the client	POST	/api/auth/logout	http://localhost:5000/
+20232123	22:21:35	b612f563-c622-4e9c-b0e1-9d3d9f45ceb3	Error: Cannot set headers after they are sent to the client	POST	/api/auth/logout	http://localhost:5000/
+20232123	22:21:44	7a235534-e125-488c-b14b-81fad61bb6ea	Error: Cannot set headers after they are sent to the client	POST	/api/auth/logout	http://localhost:5000/
+20232223	22:22:22	fab70c90-9e5a-4a05-bf3a-fdba17aa7f66	Error: Cannot set headers after they are sent to the client	POST	/api/auth/logout	http://localhost:5000/
+20232223	22:22:24	5335991b-6301-4954-a031-901f0bd4574e	Error: Cannot set headers after they are sent to the client	POST	/api/auth/logout	http://localhost:5000/
+20232323	22:23:33	01195769-378a-4508-bb2e-2932ccc8e2ff	Error: Cannot set headers after they are sent to the client	POST	/api/auth/logout	http://localhost:5000/
+20232323	22:23:59	3ed63d7f-6eb8-4f02-87a5-f7fecc0796cc	Error: Cannot set headers after they are sent to the client	POST	/api/auth/logout	http://localhost:5000/
+20232423	22:24:25	e746579d-8218-4394-9b60-d20f9d298e61	Error: Cannot set headers after they are sent to the client	POST	/api/auth/logout	http://localhost:5000/
+20232423	22:24:26	99c0f39e-99f7-4794-87bc-02475e2ce475	Error: Cannot set headers after they are sent to the client	POST	/api/auth/logout	http://localhost:5000/

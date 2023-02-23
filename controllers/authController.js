@@ -2,9 +2,7 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const asyncHandler = require("express-async-handler");
 const jwt = require("jsonwebtoken");
-const baseName = require("../baseName");
-const { v4: uuid } = require("uuid");
-const { join } = require("path");
+const expressFileUploader = require("../middleware/expressUploader");
 
 /* REGISTER USER */
 
@@ -47,26 +45,9 @@ const register = asyncHandler(async (req, res) => {
   const salt = await bcrypt.genSalt();
   const hashedPassword = await bcrypt.hash(password, salt);
 
-  // const url = req.protocol + "://" + req.get("host");
+  const uploadPath = await expressFileUploader(profileImg, "dummy");
 
-  let uploadPath = "";
-  let filesUploadedSuccess = true;
-  if (profileImg) {
-    uploadPath = `public/assets/profileImg/${uuid()}.${
-      profileImg.name.split(".")[1]
-    }`;
-
-    const fileUpload = () =>
-      new Promise((resolve, reject) => {
-        profileImg.mv(join(baseName, uploadPath), (err) => {
-          if (err) reject(false);
-          resolve(true);
-        });
-      });
-    filesUploadedSuccess = await fileUpload();
-  }
-
-  if (!filesUploadedSuccess)
+  if (profileImg && uploadPath === "")
     return res.status(400).json({ message: "file upload failed" });
 
   const newUser = new User({
@@ -84,7 +65,7 @@ const register = asyncHandler(async (req, res) => {
     wordPlace,
     email,
     password: hashedPassword,
-    profileImg: uploadPath.slice(6),
+    profileImg: uploadPath,
   });
 
   const savedUser = await newUser.save();

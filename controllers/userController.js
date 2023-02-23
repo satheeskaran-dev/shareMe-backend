@@ -104,6 +104,69 @@ const removeProfilePicture = asyncHandler(async (req, res) => {
   }
 });
 
+const changeProfilePicture = asyncHandler(async (req, res) => {
+  const { id } = req.query;
+  const { profileImg } = req.files || {};
+
+  if (!id || !profileImg) {
+    return res.status(404).json({ message: "user id or image not provided !" });
+  }
+
+  const user = await User.findById(id);
+
+  if (!user) {
+    return res.status(400).json({ message: "User does not exists !" });
+  }
+
+  // Remove old profile form the server
+
+  if (user.profileImg) {
+    fs.unlink(`public/${user.profileImg}`, async (err) => {
+      if (err) {
+        return res.status(500).json({
+          message: "Could not delete the file. " + err,
+        });
+      }
+    });
+  }
+
+  //New profile upload into the server
+
+  let filesUploadedSuccess = true;
+
+  const uploadPath = `public/assets/profileImg/${uuid()}.${
+    profileImg.name.split(".")[1]
+  }`;
+
+  const fileUpload = () =>
+    new Promise((resolve, reject) => {
+      profileImg.mv(join(baseName, uploadPath), (err) => {
+        if (err) reject(false);
+        resolve(true);
+      });
+    });
+  filesUploadedSuccess = await fileUpload();
+
+  if (!filesUploadedSuccess)
+    return res.status(400).json({ message: "file upload failed" });
+
+  user.profileImg = uploadPath.slice(6);
+
+  const updatedUser = await user.save();
+
+  if (updatedUser) {
+    return res.status(200).json({
+      status: 200,
+      message: "Profile picture updated successfully .",
+      user: updatedUser,
+    });
+  } else {
+    return res.status(500).json({
+      message: "server error",
+    });
+  }
+});
+
 const getUserPost = asyncHandler(async (req, res) => {
   const { id } = req.params;
   console.log(id);
@@ -126,4 +189,5 @@ module.exports = {
   updateUser,
   changePassword,
   removeProfilePicture,
+  changeProfilePicture,
 };
