@@ -1,17 +1,15 @@
 const router = require("express").Router();
-const {
-  getUserPost,
-  updateUser,
-  changePassword,
-  removeProfilePicture,
-  getAllUsers,
-  changeProfilePicture,
-} = require("../controllers/userController");
+const getAllUsers = require("../controllers/userControllers/getAllUsers");
+const getUserPost = require("../controllers/userControllers/getUserPost");
+const updateUser = require("../controllers/userControllers/updateUser");
+const changeProfilePicture = require("../controllers/userControllers/changeProfilePicture");
+const removeProfilePicture = require("../controllers/userControllers/removeProfilePicture");
+const changePassword = require("../controllers/userControllers/changePassword");
 
 router.get("/", getAllUsers);
 router.get("/:id", getUserPost);
 router.patch("/", updateUser);
-router.patch("/change-profile/:id", changeProfilePicture);
+router.put("/change-profile/:id", changeProfilePicture);
 router.delete("/remove-profile/:id", removeProfilePicture);
 router.patch("/change-password/:id", changePassword);
 

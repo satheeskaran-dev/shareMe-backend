@@ -1,12 +1,11 @@
-const Post = require("../models/Post");
+const Post = require("../../models/Post");
 const asyncHandler = require("express-async-handler");
-const User = require("../models/User");
-const expressFileUploader = require("../middleware/expressUploader");
+const User = require("../../models/User");
+const expressFileUploader = require("../../middleware/expressUploader");
 
 const createPost = asyncHandler(async (req, res) => {
   const { description } = req.body || {};
   const { userId } = req.query || {};
-
   const { image } = req.files || {};
 
   //confirm data
@@ -48,12 +47,4 @@ const createPost = asyncHandler(async (req, res) => {
   }
 });
 
-const getAllPost = asyncHandler(async (req, res) => {
-  const post = await Post.find();
-  if (!post) {
-    return res.status(404).json({ message: "No posts exists !" });
-  }
-  res.status(200).json(post);
-});
-
-module.exports = { createPost, getAllPost };
+module.exports = createPost;
