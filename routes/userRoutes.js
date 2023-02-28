@@ -9,7 +9,7 @@ const changePassword = require("../controllers/userControllers/changePassword");
 router.get("/", getAllUsers);
 router.get("/:id", getUserPost);
 router.patch("/", updateUser);
-router.put("/change-profile/:id", changeProfilePicture);
+router.patch("/change-profile/:id", changeProfilePicture);
 router.delete("/remove-profile/:id", removeProfilePicture);
 router.patch("/change-password/:id", changePassword);
 

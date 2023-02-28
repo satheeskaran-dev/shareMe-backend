@@ -55,3 +55,4 @@
 20232423	22:24:26	99c0f39e-99f7-4794-87bc-02475e2ce475	Error: Cannot set headers after they are sent to the client	POST	/api/auth/logout	http://localhost:5000/
 20232424	19:24:19	e50d6005-c56d-4c5f-923e-519e212356aa	TypeError: The "cb" argument must be of type function. Received undefined	DELETE	/api/user/remove-profile/63f8c12cf462adddf6bdd2c1	http://localhost:5000/
 20232624	19:26:29	804d8e67-0efd-4a48-96d3-b4b82966f634	TypeError: The "cb" argument must be of type function. Received undefined	DELETE	/api/user/remove-profile/63f8c12cf462adddf6bdd2c1	http://localhost:5000/
+20233428	20:34:34	b6ea61cc-dec4-47bc-bdcc-3e1deb942f38	TypeError: Cannot read properties of undefined (reading 'split')	PATCH	/api/user/change-profile/63fcea3c06e7ee8579c86ebe	http://localhost:5000/

@@ -7,10 +7,10 @@ const expressFileUploader = require("../../middleware/expressUploader");
 
 const changeProfilePicture = asyncHandler(async (req, res) => {
   const { id } = req.params;
-  console.log("profile id =>", id);
+
   const { profileImg } = req.files || {};
 
-  console.log("profile id =>", id);
+  console.log("user =>", profileImg);
 
   if (!id || !profileImg) {
     return res.status(404).json({ message: "user id or image not provided !" });
@@ -38,7 +38,7 @@ const changeProfilePicture = asyncHandler(async (req, res) => {
   }
   //New profile upload into the server
 
-  const uploadPath = await expressFileUploader(profileImg, "userProfileImage");
+  const uploadPath = await expressFileUploader(profileImg, "profileImg");
 
   if (profileImg && uploadPath === "")
     return res.status(400).json({ message: "file upload failed" });

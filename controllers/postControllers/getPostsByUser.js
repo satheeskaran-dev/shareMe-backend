@@ -10,7 +10,7 @@ const getPostsByUser = asyncHandler(async (req, res) => {
     return res.status(400).json({ message: "Id not provided !" });
   }
 
-  const post = await Post.find({ user: id });
+  const post = await Post.find({ user: id }).sort({ createdAt: -1 });
 
   if (!post) {
     return res.status(404).json({ message: "No posts exists !" });
