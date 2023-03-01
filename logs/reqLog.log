@@ -1248,3 +1248,7 @@
 20231001	20:10:40	3b5aaadd-ca1e-4ad1-8672-9accc8f3b0e5	POST	/api/auth/login	http://localhost:5000/
 20231001	20:10:44	097fa76c-f067-449e-ba26-c8ae991fad0e	GET	/api/post/63f3befe5af16dd5d8185463	undefined
 20231101	20:11:02	088b8c04-fca3-4a3a-bbcc-0d45d2398cdf	POST	/api/auth/logout	http://localhost:5000/
+20234601	20:46:19	b199f972-3896-40e6-9080-05377a23de96	POST	/api/auth/login	http://localhost:5000/
+20234601	20:46:37	96410731-0512-493c-99ed-b17c7e62d0e9	POST	/api/auth/logout	http://localhost:5000/
+20234601	20:46:38	1557cb99-8bab-4f07-8a01-630e93bc8577	POST	/api/auth/logout	http://localhost:5000/
+20234701	20:47:54	0b2b26d0-4016-4c28-8b6d-c00de0d747ca	POST	/api/auth/logout	http://localhost:5000/
