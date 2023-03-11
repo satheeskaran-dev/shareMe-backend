@@ -56,3 +56,10 @@
 20232424	19:24:19	e50d6005-c56d-4c5f-923e-519e212356aa	TypeError: The "cb" argument must be of type function. Received undefined	DELETE	/api/user/remove-profile/63f8c12cf462adddf6bdd2c1	http://localhost:5000/
 20232624	19:26:29	804d8e67-0efd-4a48-96d3-b4b82966f634	TypeError: The "cb" argument must be of type function. Received undefined	DELETE	/api/user/remove-profile/63f8c12cf462adddf6bdd2c1	http://localhost:5000/
 20233428	20:34:34	b6ea61cc-dec4-47bc-bdcc-3e1deb942f38	TypeError: Cannot read properties of undefined (reading 'split')	PATCH	/api/user/change-profile/63fcea3c06e7ee8579c86ebe	http://localhost:5000/
+20230208	20:02:49	d37aa3c1-c99b-47b1-9de5-e737552e37df	CastError: Cast to ObjectId failed for value "undefined" (type string) at path "user" for model "Post"	GET	/api/post/undefined	undefined
+20230308	20:03:18	6e654d23-70c6-4869-a3c5-e86ac60b9924	CastError: Cast to ObjectId failed for value "undefined" (type string) at path "user" for model "Post"	GET	/api/post/undefined	undefined
+20230611	00:06:22	7e9a8e44-0b32-4735-90fa-7d3f93ca549d	ReferenceError: dummy is not defined	POST	/api/post/like-post	http://localhost:5000/
+20231611	00:16:12	3a8e5f46-5157-4f58-81b3-26c8c6f28eb3	VersionError: No matching document found for id "640b743d0c0126005a44b9db" version 21 modifiedPaths "likes"	POST	/api/post/like-post	http://localhost:5000/
+20231611	00:16:16	15c5adb7-b5d4-4deb-a3f8-8ca341bb8d56	VersionError: No matching document found for id "640b743d0c0126005a44b9db" version 23 modifiedPaths "likes"	POST	/api/post/like-post	http://localhost:5000/
+20231611	00:16:18	0fa9a59a-bf23-476e-aa88-05d102a2a4cf	VersionError: No matching document found for id "640b743d0c0126005a44b9db" version 24 modifiedPaths "likes"	POST	/api/post/like-post	http://localhost:5000/
+20232911	00:29:11	54761cfa-d605-4799-8d4f-46d1572431a9	VersionError: No matching document found for id "640b7c6b16e6c44444840074" version 5 modifiedPaths "likes"	POST	/api/post/like-post	http://localhost:5000/

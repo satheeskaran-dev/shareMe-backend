@@ -17,7 +17,7 @@ const getUserPost = asyncHandler(async (req, res) => {
   if (!userPost) {
     return res.status(404).json({ message: "No posts exists !" });
   }
-  res.status(200).json(userPost);
+  res.status(200).json(userPost);cod
 });
 
 module.exports = getUserPost
